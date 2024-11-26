@@ -37,12 +37,12 @@ export class Pomodoro {
         await this.#notify(`It's time to work!${this.#config.workSign}`);
       }
       await this.#startWork();
-      await this.#notify(
+       this.#notify(
         `It's time to take a short break!${this.#config.shortBreakSign}`,
       );
       await this.#startShortBreak();
     }
-    await this.#notify(
+    this.#notify(
       `It's time to take a long break!${this.#config.longBreakSign}`,
     );
     await this.#startLongBreak();

@@ -1,6 +1,6 @@
 import type { Denops } from "./deps.ts";
 import { deferred } from "./deps.ts";
-import { createNotifier } from "./notifiers.ts";
+import { createMyNotifier } from "./myNotifier.ts";
 import { Pomodoro } from "./pomodoro.ts";
 import { createRenderer } from "./renderer.ts";
 import { createTimer } from "./timer.ts";
@@ -63,7 +63,7 @@ export async function main(denops: Denops): Promise<void> {
 async function createPomodoro(vim: Vim): Promise<Pomodoro> {
   const config = await createVimConfig(vim);
   const timer = createTimer(config.workMinutes);
-  const notifier = createNotifier();
+  const notifier = createMyNotifier(vim);
   const renderer = createRenderer(vim);
   return new Pomodoro(config, timer, notifier, renderer);
 }
